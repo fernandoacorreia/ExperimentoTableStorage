@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>@ViewBag.Message</h2>
+<p>
+    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.
+</p>
+
+@model List<MvcWebRole1.Models.Contato>
+@{
+    var grid = new WebGrid(Model);
+    @grid.GetHtml();
+}
+
+<div>
+    @using (Html.BeginForm("CriarRegistros", "Home"))
+    {
+        <input type="submit" id="criarSemData" name="criarRegistros", value="Criar registros sem data" />
+        <input type="submit" id="criarComData" name="criarRegistros", value="Criar registros com data" />
+    }
+</div>
